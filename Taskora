@@ -1,0 +1,35 @@
+Taskora — Productivity Landing Page
+
+Plan better. Focus deeper. Make progress every day.
+
+Taskora is a clean, modern, and responsive productivity landing page designed around the idea that meaningful progress starts with clear priorities and consistent action.
+
+The project showcases a productivity platform concept that encourages users to organize their tasks, manage their time, and focus on what matters most. It was built as a frontend practice project to strengthen my HTML and CSS skills while learning to create visually appealing and user-friendly web experiences.
+
+✨ Features
+Modern UI Design: A clean layout with a consistent color palette and clear visual hierarchy.
+Hero Section: A welcoming introduction to Taskora and its purpose.
+Features Section: Highlights the benefits of staying organized and focused.
+How It Works: Presents a simple approach to planning and completing tasks.
+About Section: Explains the philosophy behind Taskora.
+Call-to-Action Sections: Encourages visitors to take the next step.
+Responsive Layout: Designed to adapt to desktop, tablet, and mobile screens.
+🛠️ Technologies Used
+HTML5
+CSS3
+CSS Grid and Flexbox
+CSS Media Queries
+Responsive Web Design
+🎯 Project Goals
+
+The goal of this project is to improve my frontend development skills through practical implementation, focusing on semantic HTML, reusable CSS styling, responsive layouts, and clean user interface design.
+
+📚 What I Learned
+
+While building Taskora, I practised:
+
+Structuring web pages with semantic HTML.
+Creating layouts with CSS Grid and Flexbox.
+Styling sections with consistent spacing, typography, and colors.
+Making layouts responsive across different screen sizes.
+Organizing project files for easier maintenance.
