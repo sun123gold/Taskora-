@@ -144,6 +144,9 @@ ul{
     color: var(--accent);
 }
 
+.nav-panel{
+    justify-content: space-between;
+}
 .nav-actions{
     display: flex;
     align-items: center;
@@ -698,15 +701,23 @@ ul{
         flex-direction: column;
         align-items: stretch;
         gap: 18px;
+        width: 100%;
         padding: 20px 18px 18px;
         background: rgba(255, 255, 255, 0.98);
         border: 1px solid var(--border);
         border-radius: 18px;
         box-shadow: var(--shadow);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: opacity 0.2s ease, transform 0.2s ease;
     }
 
     .navbar.is-open .nav-panel {
         display: flex;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
     }
 
     .nav-links,
