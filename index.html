@@ -13,18 +13,26 @@
 
     <!-- Header ? Navigation Section -->
     <header class="header">
-        <nav class="navbar container">
+        <nav class="navbar container" aria-label="Main navigation">
             <a href="#" class="logo">Taskora<span>.</span></a>
 
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#how-it-works">How it works</a></li>
-            </ul>
+            <button class="mobile-menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-            <div class="nav-actions">
-                <a href="#login" class="login-link">Log in</a>
-                <a href="#get-started" class="btn btn-primary">Get Started</a>
+            <div class="nav-panel">
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How it works</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="#login" class="login-link">Log in</a>
+                    <a href="#get-started" class="btn btn-primary">Get Started</a>
+                </div>
             </div>
         </nav>
     </header>
@@ -36,9 +44,10 @@
                 <p class="eyebrow">A SIMPLER WAY TO GET THINGS DONE</p>
 
                 <h1>Taskora is made for <span>your everyday.</span></h1>
-                <p class="hero-description">Taskora is a practice project for this design concept. 
-                    It’s not a real product, but it’s designed to feel like one. 
-                    The goal is to create a calm, clear, and approachable experience that makes productivity feel more achievable.
+                <p class="hero-description">Taskora is a practice project for this design concept.
+                    It’s not a real product, but it’s designed to feel like one.
+                    The goal is to create a calm, clear, and approachable experience that makes productivity feel more
+                    achievable.
                 </p>
 
                 <div class="hero-actions">
@@ -148,31 +157,35 @@
                 <div class="section-heading">
                     <p class="eyebrow">WORK WITH PURPOSE</p>
                     <h2>Features that make a difference</h2>
-                    <p>Taskora comes with a set of features designed to enhance your productivity and make task management a breeze.</p>
+                    <p>Taskora comes with a set of features designed to enhance your productivity and make task
+                        management a breeze.</p>
                 </div>
 
                 <div class="features-grid">
                     <article class="feature-card">
                         <div class="feature-icon"><i class="fa-solid fa-calendar-check"></i></div>
                         <h3>Task Management</h3>
-                        <p>Organize your tasks with ease. Create, edit, and prioritize tasks to stay on top of your work.</p>
+                        <p>Organize your tasks with ease. Create, edit, and prioritize tasks to stay on top of your
+                            work.</p>
                     </article>
                     <article class="feature-card">
                         <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
                         <h3>Progress Tracking</h3>
-                        <p>Visualize your progress with intuitive charts and insights. Stay motivated as you complete tasks.</p>
+                        <p>Visualize your progress with intuitive charts and insights. Stay motivated as you complete
+                            tasks.</p>
                     </article>
                     <article class="feature-card">
                         <div class="feature-icon"><i class="fa-solid fa-bell"></i></div>
                         <h3>Reminders & Notifications</h3>
-                        <p>Never miss a deadline. Set reminders and receive notifications to keep your tasks on track.</p>
+                        <p>Never miss a deadline. Set reminders and receive notifications to keep your tasks on track.
+                        </p>
                     </article>
                 </div>
             </div>
         </section>
 
         <!-- How It works -->
-       <section class="how-it-works" id="how-it-works">
+        <section class="how-it-works" id="how-it-works">
             <div class="container">
                 <div class="section-heading">
                     <p class="eyebrow">HOW IT WORKS</p>
@@ -197,28 +210,30 @@
                     </article>
                 </div>
             </div>
-       </section>
+        </section>
 
-       <!-- Call to Action -->
-       <section class="cta section" id="get-started">
+        <!-- Call to Action -->
+        <section class="cta section" id="get-started">
             <div class="container cta-content">
                 <h2>Ready to make your days count?</h2>
                 <p>Start with a plan. Build momentum one task at a time.</p>
                 <a href="#features" class="btn btn-light">Explore Taskora</a>
             </div>
-       </section>
+        </section>
     </main>
 
     <!-- Footer -->
     <footer class="footer" id="login">
         <div class="container footer-content">
-           <a href="#" class="logo">Taskora<span>.</span></a>
-           <p>Plan your work, boost your productivity.</p>
-           <p class="copyright">
+            <a href="#" class="logo">Taskora<span>.</span></a>
+            <p>Plan your work, boost your productivity.</p>
+            <p class="copyright">
                 &copy; 2024 Taskora. All rights reserved.
-           </p>
+            </p>
         </div>
     </footer>
+
+    <script src="./script.js"></script>
 </body>
 
 </html>
