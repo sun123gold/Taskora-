@@ -1,239 +1,517 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/styles/styles.css">
-    <link rel="stylesheet" href="./fontawesome-free-7.3.1-web/css/all.min.css">
-    <title>Taskora - Plan smarter. Work better.</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Taskora helps you plan your day, organize your priorities, and make meaningful progress one task at a time."
+  >
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Taskora — Make Progress Every Day</title>
+
+  <!-- Tailwind CSS CDN: suitable for prototyping -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Brand design tokens -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: "#F5F3FF",
+              100: "#EDE9FE",
+              200: "#DDD6FE",
+              500: "#7C65E8",
+              600: "#6D55D9",
+              700: "#5943BD",
+              900: "#29245F"
+            }
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"]
+          },
+          boxShadow: {
+            soft: "0 18px 50px rgba(41, 36, 95, 0.08)"
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 </head>
 
-<body>
+<body class="bg-white font-sans text-slate-800 antialiased">
 
-    <!-- Header ? Navigation Section -->
-    <header class="header">
-        <nav class="navbar container" aria-label="Main navigation">
-            <a href="#" class="logo">Taskora<span>.</span></a>
+  <!-- Skip link: helps keyboard and screen-reader users -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-white focus:p-4 focus:text-brand-900 focus:shadow-lg"
+  >
+    Skip to main content
+  </a>
 
-            <button class="mobile-menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+  <!-- ==================== HEADER ==================== -->
+  <header class="sticky top-0 z-40 border-b border-slate-100 bg-white/95 backdrop-blur">
+    <nav
+      class="relative mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8"
+      aria-label="Main navigation"
+    >
+      <a
+        href="#home"
+        class="text-2xl font-extrabold tracking-tight text-brand-900"
+        aria-label="Taskora home"
+      >
+        taskora<span class="text-brand-500">.</span>
+      </a>
 
-            <div class="nav-panel">
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#how-it-works">How it works</a></li>
-                </ul>
+      <div class="hidden items-center gap-8 lg:flex">
+        <a href="#features" class="text-sm font-medium text-slate-600 transition hover:text-brand-600 focus:outline-none focus:text-brand-600">
+          Features
+        </a>
+        <a href="#how-it-works" class="text-sm font-medium text-slate-600 transition hover:text-brand-600 focus:outline-none focus:text-brand-600">
+          How it works
+        </a>
+        <a href="#about" class="text-sm font-medium text-slate-600 transition hover:text-brand-600 focus:outline-none focus:text-brand-600">
+          About
+        </a>
+      </div>
 
-                <div class="nav-actions">
-                    <a href="#login" class="login-link">Log in</a>
-                    <a href="#get-started" class="btn btn-primary">Get Started</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+      <a
+        href="#get-started"
+        class="hidden rounded-xl bg-brand-500 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-600 focus:outline-none focus:ring-4 focus:ring-brand-100 sm:px-5 lg:inline-flex"
+      >
+        Get started
+      </a>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero container">
-            <div class="hero-content">
-                <p class="eyebrow">A SIMPLER WAY TO GET THINGS DONE</p>
+      <button
+        id="menu-toggle"
+        type="button"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 text-brand-900 transition hover:border-brand-200 hover:bg-brand-50 focus:outline-none focus:ring-4 focus:ring-brand-100 lg:hidden"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg id="menu-icon" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
 
-                <h1>Taskora is made for <span>your everyday.</span></h1>
-                <p class="hero-description">Taskora is a practice project for this design concept.
-                    It’s not a real product, but it’s designed to feel like one.
-                    The goal is to create a calm, clear, and approachable experience that makes productivity feel more
-                    achievable.
-                </p>
+      <div
+        id="mobile-menu"
+        class="absolute left-0 right-0 top-full z-50 mt-2 hidden rounded-2xl border border-slate-200 bg-white p-3 shadow-soft lg:hidden"
+        aria-hidden="true"
+      >
+        <a href="#features" class="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:bg-brand-50">
+          Features
+        </a>
+        <a href="#how-it-works" class="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:bg-brand-50">
+          How it works
+        </a>
+        <a href="#about" class="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:bg-brand-50">
+          About
+        </a>
+        <a href="#get-started" class="mt-2 flex items-center justify-center rounded-xl bg-brand-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-brand-600 focus:outline-none focus:ring-4 focus:ring-brand-100">
+          Get started
+        </a>
+      </div>
+    </nav>
+  </header>
 
-                <div class="hero-actions">
-                    <a href="#get-started" class="btn btn-primary">Get Started for free</a>
-                    <a href="#features" class="btn btn-secondary">Explore Features</a>
-                </div>
 
-                <p class="hero-note">
-                    Less overhelm. More focus. One day at a time.
-                </p>
-            </div>
+  <main id="main-content">
 
-            <div class="hero-visual">
-                <div class="dashbaord-card">
-                    <div class="dashboard-header">
-                        <div>
-                            <p class="dashboard-label">My Workspace</p>
-                            <h2>Today's Tasks</h2>
-                        </div>
-                        <span class="task-count">3 tasks</span>
-                    </div>
+    <!-- ==================== HERO ==================== -->
+    <section id="home" class="relative overflow-hidden bg-gradient-to-b from-brand-50 via-white to-white">
+      <div class="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-brand-100/70 blur-3xl"></div>
 
-                    <div class="progress-section">
-                        <div class="progress-info">
-                            <span> Daily Progress</span>
-                            <strong> 60% </strong>
-                        </div>
-                        <div class="progress-track">
-                            <div class="progress-fill"></div>
-                        </div>
-                    </div>
+      <div class="relative mx-auto grid max-w-7xl items-center gap-14 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:py-28">
 
-                    <div class="task-list">
-                        <div class="task-item completed">
-                            <span class="task-check">✓</span>
-                            <div>
-                                <h3>Morning Routine</h3>
-                                <p>Start the day with a clear mind.</p>
-                            </div>
-                        </div>
-                        <div class="task-item">
-                            <span class="task-check"></span>
-                            <div>
-                                <h3>Team Meeting</h3>
-                                <p>Discuss project updates and next steps.</p>
-                            </div>
-                        </div>
-                        <div class="task-item">
-                            <span class="task-check"></span>
-                            <div>
-                                <h3>Code Review</h3>
-                                <p>Review pull requests and provide feedback.</p>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Hero copy -->
+        <div>
+          <p class="inline-flex items-center gap-2 rounded-full border border-brand-100 bg-white px-4 py-2 text-sm font-medium text-brand-700">
+            <span class="h-2 w-2 rounded-full bg-brand-500" aria-hidden="true"></span>
+            A simpler way to get things done
+          </p>
 
-                    <div class="dashboard-footer">
-                        <span>Keep going!</span>
-                        <span class="footer-star">✦</span>
-                    </div>
-                </div>
-                <div class="floating-note">
-                    <span class="floating-icon">✓</span>
-                    <div>
-                        <strong>Stay Focused</strong>
-                        <p>Progress over perfection</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+          <h1 class="mt-6 max-w-2xl text-4xl font-extrabold leading-tight tracking-tight text-brand-900 sm:text-5xl lg:text-6xl">
+            Make room for
+            <span class="text-brand-500">what matters.</span>
+          </h1>
 
-        <!-- About Section -->
-        <section class="about section" id="about">
-            <div class="container about-wrapper">
-                <div class="about-content">
-                    <p class="eyebrow">A SIMPLER WAY TO GET THINGS DONE</p>
-                    <h2>Taskora is made for <span>your everyday.</span></h2>
-                    <p class="about-description">Taskora is a practice project for this design concept. It’s not a real
-                        product, but it’s designed to
-                        feel like one. The goal is to create a calm, clear, and approachable experience that makes
-                        productivity feel more achievable.
-                    </p>
-                    <p class="about-highlight">
-                        Make progress without pressure. Taskora is designed to help you focus on what matters, without
-                        feeling overwhelmed by a long list of tasks. It’s about building a rhythm that works for you.
-                    </p>
-                    <a href="#get-started" class="btn btn-primary">Start your journey <span
-                            aria-hidden="true">&rarr;</span></a>
-                </div>
-                <div class="about-image">
-                    <img src="./assets/images/luke-chesser-JKUTrJ4vK00-unsplash.jpg"
-                        alt="Illustration of a person using a task management app on a laptop" loading="lazy" />
-                    <div class="about-image-note">
-                        <span class="note-check" aria-hidden="true">&#10003;</span>
-                        <div>
-                            <h3>Stay Focused</h3>
-                            <p>Small steps make big results.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+          <p class="mt-6 max-w-xl text-base leading-8 text-slate-600 sm:text-lg">
+            Organize your tasks, focus on your priorities, and
+            build a routine that works for you. Meaningful progress
+            starts with one clear next step.
+          </p>
 
-        <!-- Features Section -->
-        <section class="features section" id="features">
-            <div class="container">
-                <div class="section-heading">
-                    <p class="eyebrow">WORK WITH PURPOSE</p>
-                    <h2>Features that make a difference</h2>
-                    <p>Taskora comes with a set of features designed to enhance your productivity and make task
-                        management a breeze.</p>
-                </div>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a
+              href="#get-started"
+              class="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-6 py-4 font-semibold text-white shadow-lg shadow-brand-500/20 transition hover:-translate-y-0.5 hover:bg-brand-600 focus:outline-none focus:ring-4 focus:ring-brand-100"
+            >
+              Start your journey
+              <span aria-hidden="true">→</span>
+            </a>
 
-                <div class="features-grid">
-                    <article class="feature-card">
-                        <div class="feature-icon"><i class="fa-solid fa-calendar-check"></i></div>
-                        <h3>Task Management</h3>
-                        <p>Organize your tasks with ease. Create, edit, and prioritize tasks to stay on top of your
-                            work.</p>
-                    </article>
-                    <article class="feature-card">
-                        <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
-                        <h3>Progress Tracking</h3>
-                        <p>Visualize your progress with intuitive charts and insights. Stay motivated as you complete
-                            tasks.</p>
-                    </article>
-                    <article class="feature-card">
-                        <div class="feature-icon"><i class="fa-solid fa-bell"></i></div>
-                        <h3>Reminders & Notifications</h3>
-                        <p>Never miss a deadline. Set reminders and receive notifications to keep your tasks on track.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
+            <a
+              href="#features"
+              class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-6 py-4 font-semibold text-brand-900 transition hover:border-brand-200 hover:bg-brand-50"
+            >
+              Explore features
+            </a>
+          </div>
 
-        <!-- How It works -->
-        <section class="how-it-works" id="how-it-works">
-            <div class="container">
-                <div class="section-heading">
-                    <p class="eyebrow">HOW IT WORKS</p>
-                    <h2>Simple steps to get started</h2>
-                </div>
-
-                <div class="steps-grid">
-                    <article class="step">
-                        <span class="step-number">01</span>
-                        <h3> Write Your Tasks</h3>
-                        <p>Create and organize your tasks in a simple and intuitive way.</p>
-                    </article>
-                    <article class="step">
-                        <span class="step-number">02</span>
-                        <h3> Set Priorities</h3>
-                        <p>Assign priorities to your tasks to focus on what's most important.</p>
-                    </article>
-                    <article class="step">
-                        <span class="step-number">03</span>
-                        <h3> Track Progress</h3>
-                        <p>Monitor your progress and adjust your plan as needed.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action -->
-        <section class="cta section" id="get-started">
-            <div class="container cta-content">
-                <h2>Ready to make your days count?</h2>
-                <p>Start with a plan. Build momentum one task at a time.</p>
-                <a href="#features" class="btn btn-light">Explore Taskora</a>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer" id="login">
-        <div class="container footer-content">
-            <a href="#" class="logo">Taskora<span>.</span></a>
-            <p>Plan your work, boost your productivity.</p>
-            <p class="copyright">
-                &copy; 2024 Taskora. All rights reserved.
-            </p>
+          <div class="mt-8 flex items-start gap-3 text-sm text-slate-500">
+            <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-xs font-bold text-emerald-700" aria-hidden="true">
+              ✓
+            </span>
+            <p>Less overwhelm. Clearer priorities. Progress you can build on.</p>
+          </div>
         </div>
-    </footer>
 
-    <script src="./script.js"></script>
+
+        <!-- Product preview: illustrative UI, not live task data -->
+        <div class="relative mx-auto w-full max-w-xl">
+          <div class="absolute -inset-5 rounded-[2rem] bg-brand-100/70 blur-2xl" aria-hidden="true"></div>
+
+          <div class="relative rounded-3xl border border-slate-200/80 bg-white p-5 shadow-soft sm:p-7">
+
+            <div class="flex items-center justify-between border-b border-slate-100 pb-5">
+              <div>
+                <p class="text-sm text-slate-500">Your workspace</p>
+                <h2 class="mt-1 text-xl font-bold text-brand-900">Today's focus</h2>
+              </div>
+
+              <span class="rounded-lg bg-brand-50 px-3 py-2 text-xs font-semibold text-brand-700">
+                My day
+              </span>
+            </div>
+
+            <!-- Illustrative summary cards -->
+            <div class="mt-5 grid grid-cols-2 gap-3">
+              <div class="rounded-2xl bg-brand-50 p-4">
+                <p class="text-sm text-slate-500">Tasks planned</p>
+                <p class="mt-2 text-3xl font-extrabold text-brand-900">06</p>
+                <p class="mt-1 text-xs text-brand-700">Your daily plan</p>
+              </div>
+
+              <div class="rounded-2xl bg-emerald-50 p-4">
+                <p class="text-sm text-slate-500">Completed</p>
+                <p class="mt-2 text-3xl font-extrabold text-emerald-700">03</p>
+                <p class="mt-1 text-xs text-emerald-700">Keep going</p>
+              </div>
+            </div>
+
+            <!-- Illustrative task rows -->
+            <div class="mt-7">
+              <div class="mb-4 flex items-center justify-between">
+                <h3 class="font-bold text-brand-900">Your priorities</h3>
+                <span class="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                  Example
+                </span>
+              </div>
+
+              <ul class="space-y-3">
+
+                <li class="flex items-center gap-3 rounded-xl border border-slate-100 p-3">
+                  <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-500 text-xs text-white" aria-hidden="true">✓</span>
+                  <span class="min-w-0 flex-1 text-sm text-slate-400 line-through">
+                    Review weekly goals
+                  </span>
+                  <span class="rounded-full bg-emerald-50 px-2 py-1 text-xs text-emerald-700">
+                    Done
+                  </span>
+                </li>
+
+                <li class="flex items-center gap-3 rounded-xl border border-brand-100 bg-brand-50/40 p-3">
+                  <span class="h-5 w-5 shrink-0 rounded-full border-2 border-brand-300" aria-hidden="true"></span>
+                  <span class="min-w-0 flex-1 text-sm font-medium text-slate-700">
+                    Finish a project feature
+                  </span>
+                  <span class="rounded-full bg-rose-50 px-2 py-1 text-xs text-rose-600">
+                    High
+                  </span>
+                </li>
+
+                <li class="flex items-center gap-3 rounded-xl border border-slate-100 p-3">
+                  <span class="h-5 w-5 shrink-0 rounded-full border-2 border-slate-200" aria-hidden="true"></span>
+                  <span class="min-w-0 flex-1 text-sm font-medium text-slate-700">
+                    Read for 20 minutes
+                  </span>
+                  <span class="rounded-full bg-amber-50 px-2 py-1 text-xs text-amber-700">
+                    Medium
+                  </span>
+                </li>
+
+                <li class="flex items-center gap-3 rounded-xl border border-slate-100 p-3">
+                  <span class="h-5 w-5 shrink-0 rounded-full border-2 border-slate-200" aria-hidden="true"></span>
+                  <span class="min-w-0 flex-1 text-sm font-medium text-slate-700">
+                    Plan tomorrow
+                  </span>
+                  <span class="rounded-full bg-slate-100 px-2 py-1 text-xs text-slate-600">
+                    Low
+                  </span>
+                </li>
+
+              </ul>
+            </div>
+
+            <div class="mt-5 rounded-2xl bg-brand-900 p-4 text-white">
+              <p class="text-sm text-brand-100">A reminder for today</p>
+              <p class="mt-1 font-semibold">Small steps still move you forward.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==================== FEATURES ==================== -->
+    <section id="features" class="px-5 py-20 sm:px-8 lg:py-24">
+      <div class="mx-auto max-w-7xl">
+
+        <div class="mx-auto max-w-2xl text-center">
+          <p class="text-sm font-bold uppercase tracking-widest text-brand-600">
+            Built for your day
+          </p>
+
+          <h2 class="mt-4 text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl">
+            Get organized without the overwhelm.
+          </h2>
+
+          <p class="mt-5 leading-8 text-slate-600">
+            A focused workspace for turning intentions into
+            clear priorities and manageable actions.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+          <article class="rounded-2xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:border-brand-200 hover:shadow-soft">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-100 text-xl text-brand-700" aria-hidden="true">
+              ✓
+            </div>
+            <h3 class="mt-6 text-lg font-bold text-brand-900">
+              Organize your tasks
+            </h3>
+            <p class="mt-3 leading-7 text-slate-600">
+              Keep your responsibilities in one place and know
+              what needs your attention next.
+            </p>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:border-brand-200 hover:shadow-soft">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-100 text-xl text-brand-700" aria-hidden="true">
+              ↗
+            </div>
+            <h3 class="mt-6 text-lg font-bold text-brand-900">
+              Prioritize with purpose
+            </h3>
+            <p class="mt-3 leading-7 text-slate-600">
+              Separate urgent work from the rest and focus your
+              energy on what matters most.
+            </p>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:border-brand-200 hover:shadow-soft sm:col-span-2 lg:col-span-1">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-100 text-xl text-brand-700" aria-hidden="true">
+              ↗
+            </div>
+            <h3 class="mt-6 text-lg font-bold text-brand-900">
+              See your progress
+            </h3>
+            <p class="mt-3 leading-7 text-slate-600">
+              Recognize the work you've completed and build
+              momentum through consistent action.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== HOW IT WORKS ==================== -->
+    <section id="how-it-works" class="bg-slate-50 px-5 py-20 sm:px-8 lg:py-24">
+      <div class="mx-auto max-w-7xl">
+
+        <div class="mx-auto max-w-2xl text-center">
+          <p class="text-sm font-bold uppercase tracking-widest text-brand-600">
+            A simple routine
+          </p>
+
+          <h2 class="mt-4 text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl">
+            Three steps toward a clearer day.
+          </h2>
+        </div>
+
+        <div class="mt-14 grid gap-10 md:grid-cols-3">
+
+          <article class="text-center">
+            <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-500 text-lg font-extrabold text-white">
+              01
+            </div>
+            <h3 class="mt-5 text-xl font-bold text-brand-900">
+              Capture your tasks
+            </h3>
+            <p class="mt-3 leading-7 text-slate-600">
+              Get tasks out of your head and into a plan you can
+              return to throughout the day.
+            </p>
+          </article>
+
+          <article class="text-center">
+            <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-500 text-lg font-extrabold text-white">
+              02
+            </div>
+            <h3 class="mt-5 text-xl font-bold text-brand-900">
+              Choose your priorities
+            </h3>
+            <p class="mt-3 leading-7 text-slate-600">
+              Decide what deserves your attention and give
+              important work a realistic place in your schedule.
+            </p>
+          </article>
+
+          <article class="text-center">
+            <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-500 text-lg font-extrabold text-white">
+              03
+            </div>
+            <h3 class="mt-5 text-xl font-bold text-brand-900">
+              Make steady progress
+            </h3>
+            <p class="mt-3 leading-7 text-slate-600">
+              Take action, complete tasks, and recognize each
+              step toward your goals.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== ABOUT ==================== -->
+    <section id="about" class="px-5 py-20 sm:px-8 lg:py-24">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
+
+        <div>
+          <p class="text-sm font-bold uppercase tracking-widest text-brand-600">
+            Our philosophy
+          </p>
+
+          <h2 class="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-brand-900 sm:text-4xl">
+            You don't have to do everything at once.
+          </h2>
+
+          <p class="mt-6 leading-8 text-slate-600">
+            Taskora is built around a simple belief: meaningful
+            progress begins with clear priorities and consistent
+            action. You don't need a perfect day. You need a clear
+            next step and the space to take it.
+          </p>
+
+          <p class="mt-4 leading-8 text-slate-600">
+            Plan what matters, work at your pace, and keep moving
+            forward — one task at a time.
+          </p>
+
+          <a
+            href="#get-started"
+            class="mt-7 inline-flex items-center gap-2 font-semibold text-brand-600 transition hover:text-brand-700"
+          >
+            Take your next step
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div class="rounded-3xl border border-brand-100 bg-brand-50 p-7 sm:p-10">
+          <p class="text-sm font-semibold uppercase tracking-widest text-brand-600">
+            The Taskora mindset
+          </p>
+
+          <blockquote class="mt-5 text-2xl font-bold leading-relaxed text-brand-900 sm:text-3xl">
+            “Progress isn't about doing everything. It's about doing what matters, consistently.”
+          </blockquote>
+
+          <div class="mt-8 h-1.5 w-16 rounded-full bg-brand-500" aria-hidden="true"></div>
+
+          <p class="mt-5 text-sm leading-7 text-slate-600">
+            Start small. Stay intentional. Build momentum.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==================== CALL TO ACTION ==================== -->
+    <section id="get-started" class="px-5 pb-20 sm:px-8 lg:pb-24">
+      <div class="mx-auto max-w-7xl overflow-hidden rounded-3xl bg-brand-900 px-6 py-14 text-center sm:px-12 sm:py-20">
+
+        <p class="text-sm font-bold uppercase tracking-widest text-brand-200">
+          Your next step starts here
+        </p>
+
+        <h2 class="mx-auto mt-4 max-w-3xl text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
+          Make space for the things that matter.
+        </h2>
+
+        <p class="mx-auto mt-5 max-w-xl leading-8 text-brand-100">
+          Build a more intentional day by turning your plans
+          into manageable steps.
+        </p>
+
+        <!-- Temporary link: we'll connect this to the real app later -->
+        <a
+          href="#home"
+          class="mt-8 inline-flex items-center gap-2 rounded-xl bg-white px-7 py-4 font-bold text-brand-900 transition hover:bg-brand-50 focus:outline-none focus:ring-4 focus:ring-white/30"
+        >
+          Explore Taskora
+          <span aria-hidden="true">→</span>
+        </a>
+
+        <p class="mt-4 text-xs text-brand-200">
+          Taskora is being developed. Product features will be introduced as they become available.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="border-t border-slate-100 px-5 py-8 sm:px-8">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 sm:flex-row">
+
+      <a href="#home" class="text-xl font-extrabold text-brand-900">
+        taskora<span class="text-brand-500">.</span>
+      </a>
+
+      <p class="text-center text-sm text-slate-500">
+        Helping you make progress, one task at a time.
+      </p>
+
+      <p class="text-sm text-slate-500">
+        © <span id="current-year">2026</span> Taskora
+      </p>
+
+    </div>
+  </footer>
+  <script src="./scripts/script.js"></script>
 </body>
-
 </html>

@@ -144,9 +144,6 @@ ul{
     color: var(--accent);
 }
 
-.nav-panel{
-    justify-content: space-between;
-}
 .nav-actions{
     display: flex;
     align-items: center;
